@@ -1,0 +1,9 @@
+# # GET http://localhost:1341/posts
+
+# POST http://localhost:1343/posts
+
+# Content-Type: application/json
+# {
+# "title": "my first post",
+# "description": "Here's an description of my love life"
+# }
