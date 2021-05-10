@@ -1,22 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 dotenv.config({ path: "./config/config.env" });
 
 const app = express();
+
+app.use(bodyParser.json());
 
 // Importing Routes
 const postRoutes = require("./routes/posts");
 
 app.use("/posts", postRoutes);
 
-// app.use(bodyParser.json());
-
 // Route
 app.get("/", (req, res) => {
-  res.send("This is home");
+  res.send("this is home");
 });
 
 // Connecting to DB using mongoose
@@ -26,12 +26,12 @@ mongoose.connect(
   CONNECTION_STRING,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
-    console.log("connected to DB");
+    console.log("Successfully connected to DB");
   }
 );
 
 // Listening to app
-const PORT = 5000;
+const PORT = 6000;
 
 app.listen(PORT, () => {
   console.log(`Server is up and running at port ${PORT}`);
